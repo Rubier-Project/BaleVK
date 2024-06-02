@@ -3,7 +3,9 @@ from formattingText import formatObject
 from forefront import ForefrontClient
 from forefront.utils import SystemChat, UserChat
 
-ff = ForefrontClient(api_key="sk-mHnr4wJ44XpzqGGLa5Dg5pjVfTsRsNYu")
+token = ""
+apiKey = ""
+ff = ForefrontClient(api_key=apiKey)
 
 def gpt(user: str):
     completion = ff.chat.completions.create(
@@ -17,7 +19,7 @@ def gpt(user: str):
     )
     return str(completion.message['content'])
 
-app = BaleVK("1422238319:5PgfM2jYAfiXQndgBWwOgxmRyce4DLomzrIhhb8W")
+app = BaleVK(token)
 msg_lis = set()
 
 print("Start")
