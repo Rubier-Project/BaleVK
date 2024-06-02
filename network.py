@@ -71,6 +71,6 @@ class NetworkHandler(object):
         }
 
         try:
-            return requests.get(self.makeMethod("sendPhoto"), params=params, files=file).json()
+            return requests.post(self.makeMethod(f"send{typeFile}"), params=params, files=file).json()
         except Exception as ER:
             return str(ER)
