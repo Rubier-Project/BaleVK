@@ -1,5 +1,5 @@
 from ..main import BaleVK
-from formattingText import formatObject
+from ..formattingText import formatObject
 from forefront import ForefrontClient
 from forefront.utils import SystemChat, UserChat
 
