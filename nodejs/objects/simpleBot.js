@@ -1,6 +1,6 @@
 const token = "";
 
-const { BaleVK } = require("../main");
+const { BaleVK } = require("./main");
 const app = new BaleVK(token);
 
 let msg_lis = [];
@@ -13,8 +13,8 @@ app.on({
         let msg_id = msg.messageID;
 
         if (!msg_lis.includes(msg_id)){
-            msg_lis.push(msg.chatID);
-
+            msg_lis.push(msg_id);
+            console.log("Text: ", text);
             if (text === "/start"){
                 app.sendMessage({text: "Hello Sir this is a Bot from BaleVK Nodejs !", chatID: chat, messageID:msg_id});
             }else if (text.startsWith("say")){
