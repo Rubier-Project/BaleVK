@@ -176,31 +176,6 @@ class MessageUpdater{
     }
 }
 
-const msg = new MessageUpdater("", {
-    result: [
-        {
-            update_id: 83,
-            message: {
-            message_id: 346,
-            from: {
-                id: 554324725,
-                is_bot: false,
-                first_name: 'Paradise',
-                last_name: ''
-            },
-            date: 1717348556,
-            chat: {
-                id: 554324725,
-                type: 'private',
-                first_name: 'Paradise',
-                photo: [Object]
-            },
-            text: '/start'
-            }
-        }
-    ]
-  })
-
 module.exports = {
     MessageUpdater
 }
