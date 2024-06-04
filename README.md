@@ -10,7 +10,7 @@
 + [python3](https://github.com/Rubier-Project/BaleVK/tree/main/python)
 + [nodejs](https://github.com/Rubier-Project/BaleVK/tree/main/nodejs)
 
-### What Languages will be writed
+### What Languages will be write
 + java
 + php
 
