@@ -484,6 +484,48 @@ class BaleVK{
             }
     }
 
+    sendInvoice({
+        chatID = null,
+        goodsTitle = null || "",
+        description = null || "",
+        payload = null,
+        providerToken = null,
+        prices = [] || null,
+        photoUrl = null,
+        messageID = null,
+        replyMarkup = null,
+        callback = null
+    } = {}){
+        if (chatID === null ||
+            goodsTitle === null ||
+            goodsTitle === "" ||
+            description === null ||
+            description === "" ||
+            payload === null ||
+            providerToken === null ||
+            prices.length === 0 || 
+            prices === null){
+                throw new Error("Chat id or goods title or description or payload or provider token or prices parameter of sendInvoice cannot be null");
+            }else{
+                this.network.createGet("sendInvoice", {
+                    "chat_id": chatID,
+                    "title": goodsTitle,
+                    "description": description,
+                    "payload": payload,
+                    "provider_token": providerToken,
+                    "prices": prices,
+                    "photo_url": photoUrl,
+                    "reply_to_message_id": messageID,
+                    "reply_markup": replyMarkup
+
+                }, (data) => {
+                    if (callback === null){true;}else{
+                        callback(data);
+                    }
+                })
+            }
+    }
+
     getMe({
         callback = null
     } = {}){
