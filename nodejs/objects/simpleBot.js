@@ -1,6 +1,6 @@
 const token = "";
 
-const { BaleVK } = require("./main");
+const { BaleVK } = require("../main");
 const app = new BaleVK(token);
 
 let msg_lis = [];
