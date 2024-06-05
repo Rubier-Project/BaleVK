@@ -526,6 +526,67 @@ class BaleVK{
             }
     }
 
+    getWebhookInfo({
+        callback = null
+    } = {}){
+        this.network.createGet("getWebhookInfo", {}, (data) => {
+            if (callback === null){true;}else{
+                callback(data);
+            }
+        })
+    }
+
+    getWebhookInfoByToken({
+        token = null,
+        callback = null
+    } = {}){
+        if (token === null){
+            throw new Error("token parameter of getWebhookInfoByToken cannot be null");
+        }else{
+            this.network.auth = token;
+            this.network.createGet("getWebhookInfo", {}, (data) => {
+                if (callback === null){true;}else{
+                    callback(data);
+                } 
+            })
+            this.network.auth = this.token;
+        }
+    }
+
+    setWebhook({
+        url = null,
+        callback = null
+    } = {}){
+        if (url === null){
+            throw new Error("url parameter of setWebhook cannot be null");
+        }else{
+            this.network.createGet("setWebhook", {"url": url}, (data) => {
+                if (callback === null){true;}else{
+                    callback(data);
+                }
+            })
+        }
+    }
+
+    setWebhookByToken({
+        url = null,
+        token,
+        callback = null
+    } = {}){
+        if (token === null || 
+            url === null){
+            throw new Error("token and url parameter of setWebhookByToken cannot be null");
+        }else{
+            this.network.auth = token;
+            this.network.createGet("setWebhook", {"url": url}, (data) => {
+                if (callback === null){true;}else{
+                    callback(data);
+                } 
+            })
+            this.network.auth = this.token;
+        }
+    }
+
     getMe({
         callback = null
     } = {}){
