@@ -1,3 +1,5 @@
+// https://github.com/Rubier-Project/BaleVK
+
 const { NetworkHandler } = require("./network");
 const { MessageUpdater } = require("./updater");
 const { Formatter } = require("./formattingText");
@@ -152,20 +154,29 @@ class BaleVK{
             chatID === null){
                 throw new Error("File or Chat id parameter in sendPhoto cannot be null");
             }else{
-                this.network.upload({
-                    TypeFile: "photo",
-                    path: file,
-                    chatID: chatID,
-                    caption: caption,
-                    messageID: messageID,
-                    callback: (data) => {
-                        if (callback === null){
-                            true;
-                        }else{
-                            callback(data);
+                if (!file.startsWith("http")){
+                    this.network.upload({
+                        TypeFile: "photo",
+                        path: file,
+                        chatID: chatID,
+                        caption: caption,
+                        messageID: messageID,
+                        callback: (data) => {
+                            if (callback === null){
+                                true;
+                            }else{
+                                callback(data);
+                            }
                         }
-                    }
-                })
+                    })
+                }else{
+                    this.network.createGet("sendPhoto", {
+                        "photo": file,
+                        "chat_id": chatID,
+                        "caption": caption,
+                        "reply_to_message_id": messageID
+                    })
+                }
             }
     }
 
@@ -180,20 +191,29 @@ class BaleVK{
             chatID === null){
                 throw new Error("File or Chat id parameter in sendVideo cannot be null");
             }else{
-                this.network.upload({
-                    TypeFile: "video",
-                    path: file,
-                    chatID: chatID,
-                    caption: caption,
-                    messageID: messageID,
-                    callback: (data) => {
-                        if (callback === null){
-                            true;
-                        }else{
-                            callback(data);
+                if (!file.startsWith("http")){
+                    this.network.upload({
+                        TypeFile: "video",
+                        path: file,
+                        chatID: chatID,
+                        caption: caption,
+                        messageID: messageID,
+                        callback: (data) => {
+                            if (callback === null){
+                                true;
+                            }else{
+                                callback(data);
+                            }
                         }
-                    }
-                })
+                    })
+                }else{
+                    this.network.createGet("sendVideo", {
+                        "video": file,
+                        "chat_id": chatID,
+                        "caption": caption,
+                        "reply_to_message_id": messageID
+                    })
+                }
             }
     }
 
@@ -208,20 +228,29 @@ class BaleVK{
             chatID === null){
                 throw new Error("File or Chat id parameter in sendAudio cannot be null");
             }else{
-                this.network.upload({
-                    TypeFile: "audio",
-                    path: file,
-                    chatID: chatID,
-                    caption: caption,
-                    messageID: messageID,
-                    callback: (data) => {
-                        if (callback === null){
-                            true;
-                        }else{
-                            callback(data);
+                if (!file.startsWith("http")){
+                    this.network.upload({
+                        TypeFile: "audio",
+                        path: file,
+                        chatID: chatID,
+                        caption: caption,
+                        messageID: messageID,
+                        callback: (data) => {
+                            if (callback === null){
+                                true;
+                            }else{
+                                callback(data);
+                            }
                         }
-                    }
-                })
+                    })
+                }else{
+                    this.network.createGet("sendAudio", {
+                        "audio": file,
+                        "chat_id": chatID,
+                        "caption": caption,
+                        "reply_to_message_id": messageID
+                    })
+                }
             }
     }
 
@@ -236,20 +265,29 @@ class BaleVK{
             chatID === null){
                 throw new Error("File or Chat id parameter in sendVoice cannot be null");
             }else{
-                this.network.upload({
-                    TypeFile: "voice",
-                    path: file,
-                    chatID: chatID,
-                    caption: caption,
-                    messageID: messageID,
-                    callback: (data) => {
-                        if (callback === null){
-                            true;
-                        }else{
-                            callback(data);
+                if (!file.startsWith("http")){
+                    this.network.upload({
+                        TypeFile: "voice",
+                        path: file,
+                        chatID: chatID,
+                        caption: caption,
+                        messageID: messageID,
+                        callback: (data) => {
+                            if (callback === null){
+                                true;
+                            }else{
+                                callback(data);
+                            }
                         }
-                    }
-                })
+                    })
+                }else{
+                    this.network.createGet("sendVoice", {
+                        "voice": file,
+                        "chat_id": chatID,
+                        "caption": caption,
+                        "reply_to_message_id": messageID
+                    })
+                }
             }
     }
 
@@ -264,20 +302,29 @@ class BaleVK{
             chatID === null){
                 throw new Error("File or Chat id parameter in sendDocument cannot be null");
             }else{
-                this.network.upload({
-                    TypeFile: "document",
-                    path: file,
-                    chatID: chatID,
-                    caption: caption,
-                    messageID: messageID,
-                    callback: (data) => {
-                        if (callback === null){
-                            true;
-                        }else{
-                            callback(data);
+                if (!file.startsWith("http")){
+                    this.network.upload({
+                        TypeFile: "document",
+                        path: file,
+                        chatID: chatID,
+                        caption: caption,
+                        messageID: messageID,
+                        callback: (data) => {
+                            if (callback === null){
+                                true;
+                            }else{
+                                callback(data);
+                            }
                         }
-                    }
-                })
+                    })
+                }else{
+                    this.network.createGet("sendDocument", {
+                        "document": file,
+                        "chat_id": chatID,
+                        "caption": caption,
+                        "reply_to_message_id": messageID
+                    })
+                }
             }
     }
 
